@@ -1,26 +1,21 @@
 from fastapi import FastAPI
 from fastapi.params import Body
 from pydantic import BaseModel
+from typing import Optional
+
 app = FastAPI()
 
 class Post(BaseModel):
-    title = str
-    content = str
-
-
-
+    title: str  # Correct usage of type annotations
+    content: str  # Correct usage of type annotations
+    published: bool = True  # Correct usage of default value
+    rating: Optional[int] = None # Correct usage of default value
 @app.get("/")
 async def root():
-    return {'messages': "Welcome to my API"}
+    return {"message": "Welcome to my API"}
 
-@app.post('/create_post')    
-def create_post(new_post : Post):
-    print(new_post)
-    return {'data': 'new post'}
-
-
-
-@app.post('/post')
-async def post(payload : dict = Body(...)):
-    print(payload)
-    return {'newpost': f"Name {payload['name']}"}     
+@app.post("/create")
+def create_posts(new_post: Post):
+    print(new_post.dict())
+    print(new_post.published)
+    return {"data": new_post}

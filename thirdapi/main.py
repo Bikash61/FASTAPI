@@ -1,12 +1,12 @@
-# from fastapi import FastAPI
-# from pydantic import BaseModel
-# from datetime import datetime
+from fastapi import FastAPI
+from pydantic import BaseModel
+from datetime import datetime
 
-# app = FastAPI()
+app = FastAPI()
 
-# class Book(BaseModel):
-#     title : str
-#     book_number : int
+class Book(BaseModel):
+    title : str
+    book_number : int
 #     author : str
 #     page : int 
 

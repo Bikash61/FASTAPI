@@ -1,32 +1,3 @@
-# from fastapi import FastAPI
-# from pydantic import BaseModel
-# from datetime import datetime
-
-# app = FastAPI()
-
-# class Book(BaseModel):
-#     title : str
-#     book_number : int
-#     author : str
-#     page : int 
-
-# book_details = []
-
-# @app.get('books/')
-# async def read_books()
-
-
-#     return book_details
-
-# @app.get('books/{id}')
-# async def read_books():
-#     return book_details[id]
-
-# @app.post('books/')
-# async def create_books(book : Book):
-#     book_details.append(book)
-#     return book_details
-
 
 from fastapi import FastAPI
 from pydantic import BaseModel

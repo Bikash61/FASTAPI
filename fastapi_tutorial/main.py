@@ -1,11 +1,11 @@
 from fastapi import FastAPI
-
+from typing import Optional
 #Instance of FastAPI 
 
 app = FastAPI()
 
 @app.get('/blog')
-def index(limit,published):
+def index(limit = 10, published : bool = True, sort : Optional[str] = None):
     #Only get 10 published blog
     if published:
         return {'data':f'There are {limit} published blog  extracted fron the database'}

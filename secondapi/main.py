@@ -7,7 +7,17 @@ from random import randrange
 app = FastAPI()
 
 
-my_posts = [{'name': 'bikash', 'class':2, 'id':1}, {'name':'Dipesh', 'class':1, 'id':2}]
+class Post(BaseModel):
+    title: str
+    content: str
+    published: bool = True
+
+
+my_posts = [
+    {'title': 'Romeo', 'content':'This is a Romeo Movie', 'id':2},
+    {'title': 'Rom', 'content':'This is a Movie', 'id':2},
+]
+
 class Post(BaseModel):
     title: str  # Correct usage of type annotations
     content: str  # Correct usage of type annotations

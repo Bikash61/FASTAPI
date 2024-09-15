@@ -3,6 +3,9 @@ from fastapi.params import Body
 from pydantic import BaseModel
 from typing import Optional
 from random import randrange
+import psycopg2
+from psycopg2.extras import RealDictCursor
+
 
 app = FastAPI()
 
@@ -12,6 +15,12 @@ class Post(BaseModel):
     content: str
     published: bool = True
     rating: Optional[int] = None  # Optional field
+
+
+try:
+    conn = psycopg2.connect(host = 'localhost', database = 'fastapi',user = 'postgres',password = 'root', cursor_factory= RealDictCursor)
+    cursor = conn.cursor()
+
 
 # Simulating a list of posts as an in-memory data store
 my_posts = [

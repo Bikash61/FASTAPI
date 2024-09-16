@@ -48,7 +48,6 @@ async def create_user(user: User):
  db.append(user)
  return {"id": user.id}
 
-
 # main.py
 from uuid import UUID
 from fastapi import HTTPException
